@@ -1,7 +1,7 @@
 {
-  "name": "zhihu-daily",
+  "name": "知乎日报",
   "version": "1.0.0",
-  "description": "A Vue.js project",
+  "description": "知乎日报 web 端版本",
   "author": "chenjiandongx <chenjiandongx@qq.com>",
   "private": true,
   "scripts": {
