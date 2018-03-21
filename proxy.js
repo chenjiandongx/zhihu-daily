@@ -2,7 +2,7 @@ const http = require('http');
 const request = require('request');
 
 const hostname = '127.0.0.1';
-const port = 8081;
+const port = 8010;
 const imgPort = 8011;
 
 const apiServer = http.createServer((req, res) => {
@@ -12,7 +12,7 @@ const apiServer = http.createServer((req, res) => {
     };
 
     request.get(options, function(error, response, body) {
-        if (!error && response.statusCode == 200) {
+        if (!error && response.statusCode === 200) {
             res.setHeader('Content-Type', 'text/plain;charset=UTF-8');
             res.setHeader('Access-Control-Allow-Origin', '*');
             res.end(body);
