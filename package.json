@@ -1,5 +1,5 @@
 {
-  "name": "知乎日报",
+  "name": "zhihu-daily",
   "version": "1.0.0",
   "description": "知乎日报 web 端版本",
   "author": "chenjiandongx <chenjiandongx@qq.com>",
@@ -11,9 +11,8 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "axios": "^0.18.0",
     "express": "^4.16.3",
-    "request": "^2.85.0",
+    "got": "^8.3.0",
     "serve-static": "^1.13.2",
     "vue": "^2.5.2"
   },
