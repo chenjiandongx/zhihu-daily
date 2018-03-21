@@ -1,6 +1,6 @@
 const http = require('http')
 const path = require('path')
-const request = require('request')
+const request = require('./node_modules/request/index.js');
 const express = require('express')
 const serveStatic = require('serve-static')
 
