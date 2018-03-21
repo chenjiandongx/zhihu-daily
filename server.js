@@ -4,7 +4,7 @@ const request = require('got')
 const express = require('express')
 const serveStatic = require('serve-static')
 
-const hostname = '127.0.0.1'
+const hostname = '0.0.0.0'
 const port = 8010
 const imgPort = 8011
 
