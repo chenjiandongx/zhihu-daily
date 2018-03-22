@@ -1,33 +1,30 @@
-const http = require('http')
-const path = require('path')
-const request = require('got')
+const http = require('http');
+const path = require('path');
+const request = require('got');
 
-const hostname = '0.0.0.0'
-const port = 8010
-const imgPort = 8011
+const HOSTNAME = '0.0.0.0';
+const PORT = process.env.PORT || 8010;
 
 const apiServer = http.createServer((req, res) => {
-  const url = 'http://news-at.zhihu.com/api/4' + req.url
-  request.get(url).then(response => {
-    res.setHeader('Content-Type', 'text/plain')
-    res.setHeader('Access-Control-Allow-Origin', '*')
-    res.end(response.body)
-  }).catch(error => {
-  })
-}).listen(port, hostname, () => {
-  console.log(`接口代理运行在 http://${hostname}:${port}/`)
-})
+  if (req.url.split('/img/')[1] === undefined) {
+    const apiUrl = 'http://news-at.zhihu.com/api/4' + req.url;
+    request.get(apiUrl).then(response => {
+      res.setHeader('Content-Type', 'text/plain;charset=utf8');
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      res.end(response.body);
+    }).catch(error => {});
+  } else {
+    const imgUrl = req.url.split('/img/')[1];
+    request.get(imgUrl, { encoding: null }).then(response => {
+      res.setHeader('Content-Type', 'image/jpeg')
+      res.setHeader('Content-Type', 'image/gif');
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      res.end(response.body);
+    }).catch(error => {});
+  }
 
-const imgServer = http.createServer((req, res) => {
-  const url = req.url.split('/img/')[1]
-  request.get(url, {encoding: null}).then(response => {
-    res.setHeader('Content-Type', 'image/jpeg')
-    res.setHeader('Content-Type', 'image/gif')
-    res.setHeader('Access-Control-Allow-Origin', '*')
-    res.end(response.body)
-  }).catch(error => {
-  })
+}).listen(PORT, HOSTNAME, () => {
+  console.log(`接口代理运行在 http://${HOSTNAME}:${PORT}/`)
+});
 
-}).listen(imgPort, hostname, () => {
-  console.log(`图片代理运行在 http://${hostname}:${imgPort}/`)
-})
+console.log(process.env.PORT)
