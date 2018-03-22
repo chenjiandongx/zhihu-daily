@@ -1,8 +1,6 @@
 const http = require('http')
 const path = require('path')
 const request = require('got')
-const express = require('express')
-const serveStatic = require('serve-static')
 
 const hostname = '0.0.0.0'
 const port = 8010
@@ -32,12 +30,4 @@ const imgServer = http.createServer((req, res) => {
 
 }).listen(imgPort, hostname, () => {
   console.log(`图片代理运行在 http://${hostname}:${imgPort}/`)
-})
-
-const app = express()
-app.use('/', serveStatic(path.join(__dirname, '/dist')))
-app.get('*', function (req, res) {
-  res.sendFile(__dirname + '/dist/index.html')
-}).listen(process.env.PORT || 5000, () => {
-  console.log('HERE WE GO!!!')
 })
