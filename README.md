@@ -1,6 +1,4 @@
-# zhihu-daily
-
-> A Vue.js project
+# 知乎日报 web 版
 
 ## Build Setup
 
