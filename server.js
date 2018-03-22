@@ -39,5 +39,5 @@ app.use('/', serveStatic(path.join(__dirname, '/dist')))
 app.get('*', function (req, res) {
   res.sendFile(__dirname + '/dist/index.html')
 }).listen(process.env.PORT || 5000, () => {
-  console.log('项目启动，部署在 5000 端口')
+  console.log('HERE WE GO!!!')
 })
