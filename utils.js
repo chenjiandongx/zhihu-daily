@@ -3,15 +3,15 @@ import axios from 'axios'
 const localApiPath = 'http://127.0.0.1:8010/'
 const localImgPath = 'http://127.0.0.1:8010/img/'
 
-const remoteApiPathNodeJS = 'https://zhihu-daily-api-proxy.herokuapp.com/'
-const remoteImgPathNodeJS = 'https://zhihu-daily-api-proxy.herokuapp.com/img/'
+const remoteApiPathNodeJS = 'https://zhihu-daily-api-proxy-nodejs.herokuapp.com/'
+const remoteImgPathNodeJS = 'https://zhihu-daily-api-proxy-nodejs.herokuapp.com/img/'
 
 const remoteApiPathPython = 'https://zhihu-daily-api-proxy-python.herokuapp.com/'
 const remoteImgPathPython = 'https://zhihu-daily-api-proxy-python.herokuapp.com/img/'
 
 const Util = {
-  apiPath: localApiPath,
-  imgPath: localImgPath
+  apiPath: remoteApiPathNodeJS,
+  imgPath: remoteImgPathNodeJS
 }
 
 Util.ajax = axios.create({
