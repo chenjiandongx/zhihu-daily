@@ -10,8 +10,8 @@ const remoteApiPathPython = 'https://zhihu-daily-api-proxy-python.herokuapp.com/
 const remoteImgPathPython = 'https://zhihu-daily-api-proxy-python.herokuapp.com/img/'
 
 const Util = {
-  apiPath: remoteApiPathNodeJS,
-  imgPath: remoteImgPathNodeJS
+  apiPath: localApiPath,
+  imgPath: localImgPath
 }
 
 Util.ajax = axios.create({
