@@ -21,8 +21,8 @@
     methods: {
       getArticle() {
         $.ajax.get('news/' + this.id).then(res => {
-          res.body = res.body.replace(/src="http/g, 'src="' + $.imgPath + 'http');
-          res.body = res.body.replace(/src="https/g, 'src="' + $.imgPath + 'https');
+          res.body = res.body.replace(/src="https:/g, 'src="' + $.imgPath + 'https:');
+          res.body = res.body.replace(/src="http:/g, 'src="' + $.imgPath + 'http:');
           this.data = res;
           window.scrollTo(0, 0);
         });

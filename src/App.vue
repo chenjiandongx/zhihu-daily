@@ -86,7 +86,7 @@
       },
       getRecommendList() {
         this.isLoading = true;
-        const prevDay = $.prevDay(this.dailyTime);
+        const prevDay = $.prevDay(this.dailyTime - 86400000);
         $.ajax.get('news/before/' + prevDay).then(res => {
           this.recommendList.push(res);
           this.isLoading = false;
