@@ -26,5 +26,3 @@ const apiServer = http.createServer((req, res) => {
 }).listen(PORT, HOSTNAME, () => {
   console.log(`接口代理运行在 http://${HOSTNAME}:${PORT}/`)
 });
-
-console.log(process.env.PORT)
